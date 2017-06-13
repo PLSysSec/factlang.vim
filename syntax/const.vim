@@ -262,6 +262,7 @@ syn keyword	cStorageClass	public secret
 syn keyword	cStorageClass	const mut
 syn keyword	cOperator	ref
 syn keyword	cOperator	to by
+syn keyword	cOperator	declassify
 syn keyword	cOperator	unsafe_public
 syn keyword	cOperator	arrzeros arrcopy arrview
 
