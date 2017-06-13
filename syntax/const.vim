@@ -259,9 +259,11 @@ endif
 syn keyword	cType		int8 int16 int32 int64
 syn keyword	cType		uint8 uint16 uint32 uint64
 syn keyword	cStorageClass	public secret
-syn keyword	cStorageClass	out ref
+syn keyword	cStorageClass	const mut
+syn keyword	cOperator	ref
 syn keyword	cOperator	to by
 syn keyword	cOperator	unsafe_public
+syn keyword	cOperator	arrzeros arrcopy arrview
 
 syn keyword	cStructure	struct union enum typedef
 syn keyword	cStorageClass	static register auto volatile extern const
