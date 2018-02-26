@@ -201,34 +201,15 @@ endif
 syn match	cOctalError	display contained "0\o*[89]\d*"
 syn case match
 
-if exists("c_comment_strings")
-  " A comment can contain cString, cCharacter and cNumber.
-  " But a "*/" inside a cString in a cComment DOES end the comment!  So we
-  " need to use a special type of cString: cCommentString, which also ends on
-  " "*/", and sees a "*" at the start of the line as comment again.
-  " Unfortunately this doesn't very well work for // type of comments :-(
-  syn match	cCommentSkip	contained "^\s*\*\($\|\s\+\)"
-  syn region cCommentString	contained start=+L\=\\\@<!"+ skip=+\\\\\|\\"+ end=+"+ end=+\*/+me=s-1 contains=cSpecial,cCommentSkip
-  syn region cComment2String	contained start=+L\=\\\@<!"+ skip=+\\\\\|\\"+ end=+"+ end="$" contains=cSpecial
-  syn region  cCommentL	start="//" skip="\\$" end="$" keepend contains=@cCommentGroup,cComment2String,cCharacter,cNumbersCom,cSpaceError,@Spell
-  if exists("c_no_comment_fold")
-    " Use "extend" here to have preprocessor lines not terminate halfway a
-    " comment.
-    syn region cComment	matchgroup=cCommentStart start="/\*" end="\*/" contains=@cCommentGroup,cCommentStartError,cCommentString,cCharacter,cNumbersCom,cSpaceError,@Spell extend
-  else
-    syn region cComment	matchgroup=cCommentStart start="/\*" end="\*/" contains=@cCommentGroup,cCommentStartError,cCommentString,cCharacter,cNumbersCom,cSpaceError,@Spell fold extend
-  endif
+syn region	cCommentL	start="//" skip="\\$" end="$" keepend contains=@cCommentGroup,cSpaceError,@Spell
+if exists("c_no_comment_fold")
+  syn region	cComment	matchgroup=cCommentStart start="/\*" end="\*/" contains=@cCommentGroup,cComment,cSpaceError,@Spell extend
 else
-  syn region	cCommentL	start="//" skip="\\$" end="$" keepend contains=@cCommentGroup,cSpaceError,@Spell
-  if exists("c_no_comment_fold")
-    syn region	cComment	matchgroup=cCommentStart start="/\*" end="\*/" contains=@cCommentGroup,cCommentStartError,cSpaceError,@Spell extend
-  else
-    syn region	cComment	matchgroup=cCommentStart start="/\*" end="\*/" contains=@cCommentGroup,cCommentStartError,cSpaceError,@Spell fold extend
-  endif
+  syn region	cComment	matchgroup=cCommentStart start="/\*" end="\*/" contains=@cCommentGroup,cComment,cSpaceError,@Spell fold extend
 endif
 " keep a // comment separately, it terminates a preproc. conditional
 syn match	cCommentError	display "\*/"
-syn match	cCommentStartError display "/\*"me=e-1 contained
+"syn match	cCommentStartError display "/\*"me=e-1 contained
 
 "syn keyword	cOperator	sizeof
 syn keyword	cOperator	len
@@ -265,7 +246,7 @@ syn keyword	cOperator	ref
 syn keyword	cOperator	to by
 syn keyword	cOperator	declassify
 syn keyword	cOperator	unsafe_public
-syn keyword	cOperator	arrzeros arrcopy arrview
+syn keyword	cOperator	arrzeros arrcopy arrview noinit
 
 syn keyword	cStructure	struct union enum typedef
 syn keyword	cStorageClass	static register auto volatile extern const
@@ -275,6 +256,7 @@ endif
 if !exists("c_no_c99") && s:ft !=# 'cpp'
   syn keyword	cStorageClass	inline restrict
 endif
+syn keyword	cStorageClass	export noinline
 if !exists("c_no_c11")
   syn keyword	cStorageClass	_Alignas alignas
   syn keyword	cOperator	_Alignof alignof
