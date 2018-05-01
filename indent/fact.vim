@@ -1,5 +1,5 @@
 " Vim indent file
-" Language:	ConstanC
+" Language:	FaCT
 
 " Only load this indent file when no other was loaded.
 if exists("b:did_indent")

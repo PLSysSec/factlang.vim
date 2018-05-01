@@ -1,5 +1,5 @@
 " Vim filetype plugin file
-" Language:	ConstanC
+" Language:	FaCT
 
 " Only do this when not done yet for this buffer
 if exists("b:did_ftplugin")
