@@ -242,6 +242,7 @@ syn keyword	cType		int8 int16 int32 int64
 syn keyword	cType		uint8 uint16 uint32 uint64 uint128
 syn keyword	cStorageClass	public secret
 syn keyword	cStorageClass	const mut
+syn keyword	cStorageClass	cacheline
 syn keyword	cOperator	ref
 syn keyword	cOperator	to by
 syn keyword	cOperator	declassify
@@ -249,14 +250,7 @@ syn keyword	cOperator	unsafe_public
 syn keyword	cOperator	arrzeros arrcopy arrview noinit
 
 syn keyword	cStructure	struct union enum typedef
-syn keyword	cStorageClass	static register auto volatile extern const
-if exists("c_gnu")
-  syn keyword	cStorageClass	inline __attribute__
-endif
-if !exists("c_no_c99") && s:ft !=# 'cpp'
-  syn keyword	cStorageClass	inline restrict
-endif
-syn keyword	cStorageClass	export noinline
+syn keyword	cStorageClass	export inline noinline extern
 if !exists("c_no_c11")
   syn keyword	cStorageClass	_Alignas alignas
   syn keyword	cOperator	_Alignof alignof
