@@ -241,7 +241,7 @@ endif
 syn keyword	cType		int8 int16 int32 int64
 syn keyword	cType		uint8 uint16 uint32 uint64 uint128
 syn keyword	cStorageClass	public secret
-syn keyword	cStorageClass	const mut
+syn keyword	cStorageClass	const mut clobber
 syn keyword	cStorageClass	cacheline
 syn keyword	cOperator	ref
 syn keyword	cOperator	to by
