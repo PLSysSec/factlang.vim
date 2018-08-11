@@ -247,7 +247,7 @@ syn keyword	cOperator	ref
 syn keyword	cOperator	to by
 syn keyword	cOperator	declassify
 syn keyword	cOperator	unsafe_public
-syn keyword	cOperator	arrzeros arrcopy arrview noinit
+syn keyword	cOperator	zeros clone view noinit
 
 syn keyword	cStructure	struct union enum typedef
 syn keyword	cStorageClass	export inline noinline extern
