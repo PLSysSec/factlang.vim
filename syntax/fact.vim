@@ -217,34 +217,35 @@ if exists("c_gnu")
   syn keyword	cStatement	__asm__
   syn keyword	cOperator	typeof __real__ __imag__
 endif
-syn keyword	cType		int long short char void
-syn keyword	cType		signed unsigned float double
+"syn keyword	cType		int long short char void
+"syn keyword	cType		signed unsigned float double
 if !exists("c_no_ansi") || exists("c_ansi_typedefs")
-  syn keyword   cType		size_t ssize_t off_t wchar_t ptrdiff_t sig_atomic_t fpos_t
-  syn keyword   cType		clock_t time_t va_list jmp_buf FILE DIR div_t ldiv_t
-  syn keyword   cType		mbstate_t wctrans_t wint_t wctype_t
+  "syn keyword   cType		size_t ssize_t off_t wchar_t ptrdiff_t sig_atomic_t fpos_t
+  "syn keyword   cType		clock_t time_t va_list jmp_buf FILE DIR div_t ldiv_t
+  "syn keyword   cType		mbstate_t wctrans_t wint_t wctype_t
 endif
 if !exists("c_no_c99") " ISO C99
-  syn keyword	cType		_Bool bool _Complex complex _Imaginary imaginary
-  syn keyword	cType		int8_t int16_t int32_t int64_t
-  syn keyword	cType		uint8_t uint16_t uint32_t uint64_t
-  syn keyword	cType		int_least8_t int_least16_t int_least32_t int_least64_t
-  syn keyword	cType		uint_least8_t uint_least16_t uint_least32_t uint_least64_t
-  syn keyword	cType		int_fast8_t int_fast16_t int_fast32_t int_fast64_t
-  syn keyword	cType		uint_fast8_t uint_fast16_t uint_fast32_t uint_fast64_t
-  syn keyword	cType		intptr_t uintptr_t
-  syn keyword	cType		intmax_t uintmax_t
+  "syn keyword	cType		_Bool bool _Complex complex _Imaginary imaginary
+  "syn keyword	cType		int8_t int16_t int32_t int64_t
+  "syn keyword	cType		uint8_t uint16_t uint32_t uint64_t
+  "syn keyword	cType		int_least8_t int_least16_t int_least32_t int_least64_t
+  "syn keyword	cType		uint_least8_t uint_least16_t uint_least32_t uint_least64_t
+  "syn keyword	cType		int_fast8_t int_fast16_t int_fast32_t int_fast64_t
+  "syn keyword	cType		uint_fast8_t uint_fast16_t uint_fast32_t uint_fast64_t
+  "syn keyword	cType		intptr_t uintptr_t
+  "syn keyword	cType		intmax_t uintmax_t
 endif
 if exists("c_gnu")
-  syn keyword	cType		__label__ __complex__ __volatile__
+  "syn keyword	cType		__label__ __complex__ __volatile__
 endif
+syn keyword	cType		bool
 syn keyword	cType		int8 int16 int32 int64
 syn keyword	cType		uint8 uint16 uint32 uint64 uint128
 syn keyword	cStorageClass	public secret
 syn keyword	cStorageClass	const mut clobber
 syn keyword	cStorageClass	cacheline
 syn keyword	cOperator	ref
-syn keyword	cOperator	to by from
+syn keyword	cOperator	to by from in
 syn keyword	cOperator	declassify
 syn keyword	cOperator	unsafe_public
 syn keyword	cOperator	zeros clone view noinit
