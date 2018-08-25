@@ -239,7 +239,7 @@ endif
 if exists("c_gnu")
   "syn keyword	cType		__label__ __complex__ __volatile__
 endif
-syn keyword	cType		bool
+syn keyword	cType		bool void
 syn keyword	cType		int8 int16 int32 int64
 syn keyword	cType		uint8 uint16 uint32 uint64 uint128
 syn keyword	cStorageClass	public secret
