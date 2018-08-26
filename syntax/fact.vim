@@ -246,6 +246,7 @@ syn keyword	cStorageClass	public secret
 syn keyword	cStorageClass	const mut clobber
 syn keyword	cStorageClass	cacheline
 syn keyword	cOperator	ref
+syn keyword	cOperator	assume
 syn keyword	cOperator	to by from in
 syn keyword	cOperator	declassify
 syn keyword	cOperator	unsafe_public
